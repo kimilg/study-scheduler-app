@@ -5,8 +5,8 @@ namespace Domain
 {
     public class Schedule
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public DateTime Date { get; set; }
-        public ICollection<Work> Works { get; set; }
+        public ICollection<ScheduleWork> Works { get; set; }
     }
 }
