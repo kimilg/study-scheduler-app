@@ -12,6 +12,49 @@ namespace Persistence
             
             if(!context.Works.Any() && !context.Schedules.Any()) 
             {
+                var schedules = new List<Schedule>
+                {
+                    new Schedule
+                    {
+                        Date = DateTime.Now.AddMonths(-2),
+                    },
+                    new Schedule
+                    {
+                        Date = DateTime.Now.AddMonths(-1),
+                    },
+                    new Schedule
+                    {
+                        Date = DateTime.Now.AddMonths(-3),
+                    },
+                    new Schedule
+                    {
+                        Date = DateTime.Now.AddMonths(-4),
+                    },
+                    new Schedule
+                    {
+                        Date = DateTime.Now.AddMonths(-5),
+                    },
+                    new Schedule
+                    {
+                        Date = DateTime.Now.AddMonths(-6),
+                    },
+                    new Schedule
+                    {
+                        Date = DateTime.Now.AddMonths(-7),
+                    },
+                    new Schedule
+                    {
+                        Date = DateTime.Now.AddMonths(-8),
+                    },
+                    new Schedule
+                    {
+                        Date = DateTime.Now.AddMonths(-9),
+                    },
+                };
+                
+                await context.Schedules.AddRangeAsync(schedules);
+
+
                 var works = new List<Work>
                 {
                     new Work
@@ -19,210 +62,140 @@ namespace Persistence
                         Title="Making Webapp",
                         Category = "Project",
                         Description = "Making webapp using Asp.NetCore and React",
+                        Schedules = new List<ScheduleWork>
+                        {
+                            new ScheduleWork
+                            {
+                                Schedule = schedules[0],
+                                Finish = true,
+                                Score = 80
+                            },
+                            new ScheduleWork
+                            {
+                                Schedule = schedules[1],
+                                Finish = true,
+                                Score = 70
+                            },
+                            new ScheduleWork
+                            {
+                                Schedule = schedules[3],
+                                Finish = true,
+                                Score = 80
+                            },
+                        }
                     },
                     new Work
                     {
                         Title="Compilers",
                         Category = "GTCourse",
                         Description="Learn how compilers work",
+                        Schedules = new List<ScheduleWork>
+                        {
+                            new ScheduleWork
+                            {
+                                Schedule = schedules[8],
+                                Finish = true,
+                                Score = 10
+                            },
+                            new ScheduleWork
+                            {
+                                Schedule = schedules[0],
+                                Finish = true,
+                                Score = 60
+                            },
+                            new ScheduleWork
+                            {
+                                Schedule = schedules[2],
+                                Finish = true,
+                                Score = 50
+                            },
+                        }
                     },
                     new Work
                     {
                         Title="Intro to Information Security",
                         Category = "GTCourse",
-                        Description="Learn information security"
-                    },
-                    new Work
-                    {
-                        Title="Algorithm",
-                        Category="Programming",
-                        Description="Learn algorithm"
-                    },
-                    new Work
-                    {
-                        Title = "Computer Network",
-                        Category="CSAlone",
-                        Description="Learn computer network"
-                    }
-                };
-
-                var schedules = new List<Schedule>
-                {
-                    new Schedule
-                    {
-                        Date = DateTime.Now.AddMonths(-2),
-                        Works = new List<ScheduleWork>
+                        Description="Learn information security",
+                        Schedules = new List<ScheduleWork>
                         {
                             new ScheduleWork
                             {
-                                Work = works[0],
+                                Schedule = schedules[0],
                                 Finish = true,
-                                Score = 90
+                                Score = 80
                             },
                             new ScheduleWork
                             {
-                                Work = works[1],
-                                Finish = true,
-                                Score=80
-                            },
-                        }
-                    },
-                    new Schedule
-                    {
-                        Date = DateTime.Now.AddMonths(-1),
-                        Works = new List<ScheduleWork>
-                        {
-                            new ScheduleWork
-                            {
-                                Work = works[2],
-                                Finish = true,
-                                Score = 50
-                            },
-                            new ScheduleWork
-                            {
-                                Work = works[3],
-                                Finish = true,
-                                Score=80
-                            },
-                        }
-                    },
-                    new Schedule
-                    {
-                        Date = DateTime.Now.AddMonths(-3),
-                        Works = new List<ScheduleWork>
-                        {
-                            new ScheduleWork
-                            {
-                                Work = works[3],
+                                Schedule = schedules[1],
                                 Finish = true,
                                 Score = 70
                             },
                             new ScheduleWork
                             {
-                                Work = works[4],
+                                Schedule = schedules[3],
                                 Finish = true,
-                                Score=30
+                                Score = 80
                             },
                         }
                     },
-                    new Schedule
+                    new Work
                     {
-                        Date = DateTime.Now.AddMonths(-4),
-                        Works = new List<ScheduleWork>
+                        Title="Algorithm",
+                        Category="Programming",
+                        Description="Learn algorithm",
+                        Schedules = new List<ScheduleWork>
                         {
                             new ScheduleWork
                             {
-                                Work = works[0],
+                                Schedule = schedules[0],
                                 Finish = true,
-                                Score = 50
+                                Score = 60
                             },
                             new ScheduleWork
                             {
-                                Work = works[4],
-                                Finish = true,
-                                Score=80
-                            },
-                        }
-                    },
-                    new Schedule
-                    {
-                        Date = DateTime.Now.AddMonths(-5),
-                        Works = new List<ScheduleWork>
-                        {
-                            new ScheduleWork
-                            {
-                                Work = works[2],
+                                Schedule = schedules[4],
                                 Finish = true,
                                 Score = 40
                             },
                             new ScheduleWork
                             {
-                                Work = works[1],
+                                Schedule = schedules[7],
                                 Finish = true,
-                                Score=100
+                                Score = 60
                             },
                         }
                     },
-                    new Schedule
+                    new Work
                     {
-                        Date = DateTime.Now.AddMonths(-6),
-                        Works = new List<ScheduleWork>
+                        Title = "Computer Network",
+                        Category="CSAlone",
+                        Description="Learn computer network",
+                        Schedules = new List<ScheduleWork>
                         {
                             new ScheduleWork
                             {
-                                Work = works[1],
+                                Schedule = schedules[4],
                                 Finish = true,
-                                Score = 50
+                                Score = 80
                             },
                             new ScheduleWork
                             {
-                                Work = works[2],
-                                Finish = true,
-                                Score=70
-                            },
-                        }
-                    },
-                    new Schedule
-                    {
-                        Date = DateTime.Now.AddMonths(-7),
-                        Works = new List<ScheduleWork>
-                        {
-                            new ScheduleWork
-                            {
-                                Work = works[3],
-                                Finish = true,
-                                Score = 90
-                            },
-                            new ScheduleWork
-                            {
-                                Work = works[0],
-                                Finish = true,
-                                Score=90
-                            },
-                        }
-                    },
-                    new Schedule
-                    {
-                        Date = DateTime.Now.AddMonths(-8),
-                        Works = new List<ScheduleWork>
-                        {
-                            new ScheduleWork
-                            {
-                                Work = works[4],
+                                Schedule = schedules[1],
                                 Finish = true,
                                 Score = 40
                             },
                             new ScheduleWork
                             {
-                                Work = works[2],
+                                Schedule = schedules[2],
                                 Finish = true,
-                                Score=100
+                                Score = 80
                             },
                         }
-                    },
-                    new Schedule
-                    {
-                        Date = DateTime.Now.AddMonths(-9),
-                        Works = new List<ScheduleWork>
-                        {
-                            new ScheduleWork
-                            {
-                                Work = works[2],
-                                Finish = true,
-                                Score = 100
-                            },
-                            new ScheduleWork
-                            {
-                                Work = works[3],
-                                Finish = true,
-                                Score=30
-                            },
-                        }
-                    },
+                    }
                 };
 
+                
                 await context.Works.AddRangeAsync(works);
-                await context.Schedules.AddRangeAsync(schedules);
                 await context.SaveChangesAsync();
             }
         }

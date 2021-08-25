@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 
-namespace Domain
+namespace Application.Works
 {
-    public class Work
+    public class WorkDto
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
-        public ICollection<ScheduleWork> Schedules { get; set; } = new List<ScheduleWork>();
+        public ICollection<ScheduleDto> Schedules { get; set; }
     }
 }
